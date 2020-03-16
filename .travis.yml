@@ -1,0 +1,23 @@
+language: php
+
+php: 7.4
+
+before_script:
+  - cp .env.travis .env
+  - cp phpunit.travis.xml phpunit.xml
+  - sudo service mysql start
+  - mysql -e 'create database if not exists moka_test;'
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction
+
+services: mysql
+
+jobs:
+  include:
+    - stage: CodeSniffer
+      script: composer sniffer
+    - stage: tests
+      script: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
