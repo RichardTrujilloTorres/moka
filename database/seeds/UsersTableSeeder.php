@@ -30,11 +30,18 @@ class UsersTableSeeder extends Seeder
         ];
 
         foreach ($users as $user) {
-            \App\User::create([
+            /**
+             * @var \App\User $newUser
+             */
+            $newUser = \App\User::create([
                 'email' => $user['email'],
                 'name' => $user['name'],
                 'password' => bcrypt($user['password']),
             ]);
+
+            if ($user['name'] === 'Admin') {
+                $newUser->assignRole('admin');
+            }
         }
     }
 }
