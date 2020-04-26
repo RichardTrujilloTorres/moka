@@ -16,8 +16,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-//        return Auth::user()->isAdmin();
-        return true;
+        return Auth::user()->isAdmin();
     }
 
     /**
