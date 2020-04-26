@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::namespace('Api')->group(function () {
         Route::prefix(env('API_VERSION', 'v1'))->group(function () {
             Route::resource('users', 'UsersController');
+            Route::resource('roles', 'RolesController');
         });
     });
 });
