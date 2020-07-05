@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasRole('admin');
     }
+
+    public function scopeAdmin($query)
+    {
+        return $this->scopeRole($query, ['admin']);
+    }
 }
