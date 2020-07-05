@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::resource('users', 'UsersController');
             Route::resource('roles', 'RolesController');
             Route::resource('permissions', 'PermissionsController');
+            Route::resource('admins', 'AdminsController');
         });
     });
 });
