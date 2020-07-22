@@ -21,6 +21,7 @@ return [
         'login',
         'logout',
         'home',
+        'broadcasting/auth',
     ],
 
     'allowed_methods' => ['*'],
