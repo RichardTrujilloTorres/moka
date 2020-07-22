@@ -6,7 +6,7 @@ use App\Http\Requests\StorePermissionRequest;
 use App\Http\Requests\UpdatePermissionRequest;
 use App\Http\Resources\PermissionCollection;
 use App\Http\Resources\PermissionResource;
-use Spatie\Permission\Models\Permission;
+use App\Permission;
 
 class PermissionsController extends BaseController
 {

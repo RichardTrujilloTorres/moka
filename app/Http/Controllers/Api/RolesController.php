@@ -6,7 +6,7 @@ use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use App\Http\Resources\RoleCollection;
 use App\Http\Resources\RoleResource;
-use Spatie\Permission\Models\Role;
+use App\Role;
 
 class RolesController extends BaseController
 {
