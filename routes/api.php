@@ -36,6 +36,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('histories/{resource}', 'HistoriesController@index');
 
             Route::get('storage-stats', 'StorageStatsController@index');
+            Route::post('storage-stats/regenerate', 'StorageStatsController@regenerate');
         });
     });
 });
