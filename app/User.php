@@ -2,15 +2,17 @@
 
 namespace App;
 
+use App\Traits\Nameable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Scout\Searchable;
 use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements Auditable
 {
-    use Notifiable, HasRoles, \OwenIt\Auditing\Auditable;
+    use Notifiable, HasRoles, \OwenIt\Auditing\Auditable, Searchable, Nameable;
 
     /**
      * The attributes that are mass assignable.
@@ -37,6 +39,10 @@ class User extends Authenticatable implements Auditable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $appends = [
+        'resourceName',
     ];
 
     public function isAdmin()
