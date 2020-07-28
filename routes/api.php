@@ -37,6 +37,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::get('storage-stats', 'StorageStatsController@index');
             Route::post('storage-stats/regenerate', 'StorageStatsController@regenerate');
+
+            Route::get('search', 'SearchController@query');
         });
     });
 });
